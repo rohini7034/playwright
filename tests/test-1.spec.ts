@@ -1,0 +1,35 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://neweudit-archanoidees-projects.vercel.app/login');
+  await page.getByRole('textbox', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).fill('test@gmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('test');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.locator('div').filter({ hasText: /^StaffManage and View staff information with ease\.show$/ }).getByRole('link').click();
+  await page.getByRole('button', { name: 'Add Staff' }).click();
+  await page.getByRole('combobox').filter({ hasText: 'Select your Salutation' }).click();
+  await page.getByRole('option', { name: 'Mrs.' }).click();
+  await page.getByRole('textbox', { name: 'First Name' }).click();
+  await page.getByRole('textbox', { name: 'First Name' }).fill('rohini');
+  await page.getByRole('textbox', { name: 'Last Name' }).click();
+  await page.getByRole('textbox', { name: 'Last Name' }).fill('s');
+  await page.getByRole('textbox', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).fill('rohini@gmail.com');
+  await page.getByRole('textbox', { name: 'Please enter at least 10' }).click();
+  await page.getByRole('textbox', { name: 'Please enter at least 10' }).fill('7736064504');
+  await page.getByRole('textbox', { name: 'Enter your id' }).click();
+  await page.getByRole('textbox', { name: 'Enter your id' }).fill('77');
+  await page.getByPlaceholder('DD/MM/YYYY').fill('1999-11-11');
+  await page.getByRole('combobox').filter({ hasText: 'Select your languages' }).click();
+  await page.getByLabel('English').getByText('English').click();
+  await page.getByRole('combobox').filter({ hasText: 'Select your gender' }).click();
+  await page.getByRole('option', { name: 'Female' }).click();
+  await page.getByRole('combobox').filter({ hasText: 'Select your Role' }).click();
+  await page.getByRole('option', { name: 'Staff' }).click();
+  await page.getByRole('combobox').filter({ hasText: 'Select Blood Group' }).click();
+  await page.getByLabel('A Positive').getByText('A Positive').click();
+  await page.getByRole('combobox').filter({ hasText: 'Marital Status' }).click();
+  await page.getByLabel('Single').getByText('Single').click();
+});
